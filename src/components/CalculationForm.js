@@ -2,7 +2,7 @@ import React from 'react';
 
 function CalculationForm() {
   return (
-    <div>
+    <div class="d-flex justify-content-center">
       <h2>Term Calculation</h2>
       <hr />
       <div id="term" className="tab-pane active">
