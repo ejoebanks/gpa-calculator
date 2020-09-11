@@ -43,6 +43,15 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background: #232526;  /* fallback for old browsers */
+  /*
+  background: -webkit-linear-gradient(to bottom, #414345, #232526);
+  background: linear-gradient(to bottom, #414345, #232526);
+  */
+  min-height: 110vh;
+  color: white;
+  font-family: 'Raleway';
+
 }
 
 #container {
@@ -116,7 +125,6 @@ html, body {
 }
 
 
-
 /*  ------ Tooltips ------ */
 
 .defo {
@@ -150,7 +158,7 @@ html, body {
 }
 
 .btn_remove {
-  background-color: #B22222	;
+  background-color: #EE7674;
   color: white;
   top: 50%;
 }
@@ -186,17 +194,26 @@ div.err_box {
   margin: auto;
   box-shadow: 0 0 0 3px #fff, 0 0 0 5px #00467f, 0 0 0 10px #fff, 0 0 2px 10px #00467f;
 }
+.btn-group {
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
 
 .output_container {
   position: relative;
   margin: 0 auto;
-  color: #00467f;
+  color: #ffff;
   padding: 10px;
   width: 500px;
-  background-color: #f2f2f2;
+  background-color: #595959;
   text-align: center;
   min-height: 100px;
-  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #00467f, 0 0 0 10px #fff, 0 0 2px 10px #00467f;
+  box-shadow: 0 0 0 3px #2A2B2E , 0 0 0 5px #2A2B2E, 0 0 0 10px #595959, 0 0 2px 10px #2A2B2E;
+}
+
+.output_container > h3, .output_part > h3 {
+  color: #C89B7B;
+
 }
 
 hr {
@@ -214,6 +231,11 @@ hr {
   margin: auto;
 }
 
+.proj_box {
+  padding-top: 30px;
+  padding-bottom: 15px;
+  font-size: 1.75rem;
+}
 /*
 .proj_box {
   text-align: center;
@@ -243,7 +265,7 @@ hr {
 }
 
 .show_box, .term_cred {
-  font-size: 20px;
+  font-size: 30px;
 }
 .right-half {
   float: right;
@@ -256,8 +278,7 @@ input[id="reveal-projection"], input[id="reveal-cumulative"] {
   display: none;
 }
 
-#cumulative, #projection {
-  display: none;
+#projection {
   text-align: center;
 }
 input.pastgpa, input.credtaken, input.checkbox, input.targetgpa, input.credleft {
@@ -278,7 +299,7 @@ input.pastgpa, input.credtaken, input.checkbox, input.targetgpa, input.credleft 
 }
 
 .descript {
-  float: left;
+  width: 50%;
   font-size: 15px;
   text-align: left;
   padding-top: 10px;
@@ -329,6 +350,46 @@ table#t1 td:nth-of-type(5), table#t1 th:nth-child(5) {
   display: none;
 }
 
+/* Other Table Properties */
+
+.table {
+  background-color: #595959;
+  border: none !important;
+  border-radius: 15px;
+}
+
+
+.table-bordered td, .table-bordered th {
+  border: none;
+}
+
+th {
+  color: #C89B7B;
+  background-color: #2A2B2E;
+  text-align: center;
+}
+
+input, select {
+  background-color: #232526 !important;
+  color: #ffff !important;
+  border: 1px solid gray !important;
+  border-radius: 0 !important;
+}
+
+::placeholder {
+  color: #ffff !important;
+}
+
+.center-row {
+  text-align: center;
+}
+
+.center-row > h3 {
+  font-size: 3rem;
+  color: #B8D8D8;
+  font-family: 'Raleway';
+}
+
 .switch input {
     display:none;
     padding-right: 50px;
@@ -343,7 +404,17 @@ table#t1 td:nth-of-type(5), table#t1 th:nth-child(5) {
     padding-right: 20px;
 }
 
-#myform {
+.addRow {
+  background-color: #5995ED;
+  border: none;
+}
+
+.resetBtn {
+  background-color: #BF1A2F;
+  border:none;
+}
+
+.btn-success {
 }
 
 .slider {
@@ -353,7 +424,7 @@ table#t1 td:nth-of-type(5), table#t1 th:nth-child(5) {
     left:0;
     right:0;
     border-radius:30px;
-    box-shadow:0 0 0 2px #00467F, 0 0 4px #00467F;
+    box-shadow:0 0 0 2px #95A78D, 0 0 4px #95A78D;
     cursor:pointer;
     border:4px solid transparent;
     overflow:hidden;
@@ -365,7 +436,7 @@ table#t1 td:nth-of-type(5), table#t1 th:nth-child(5) {
     content:"";
     width:100%;
     height:100%;
-    background:#00467F;
+    background:#95A78D;
     border-radius:30px;
     transform:translateX(-30px);
     transition:.4s;
@@ -373,10 +444,10 @@ table#t1 td:nth-of-type(5), table#t1 th:nth-child(5) {
 
 input:checked + .slider:before {
     transform:translateX(30px);
-    background:limeGreen;
+    background: #48BEFF;
 }
 input:checked + .slider {
-    box-shadow:0 0 0 2px #47AA42,0 0 2px #47AA42;
+    box-shadow:0 0 0 2px #48BEFF,0 0 2px #48BEFF;
 }
 
 #togButtons {
@@ -388,14 +459,9 @@ input:checked + .slider {
 
 .togLabel {
   display: inline-block;
+  color: white;
   padding-right: 20px;
   padding-bottom: 20px;
-}
-
-#cu_pr_inputs{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .descript_heading {
@@ -417,3 +483,15 @@ input:checked + .slider {
   justify-content: center;
   position: relative;
   } /* necessary to give position: relative to parent. */
+
+  /* Custom Inputs */
+
+.bg-dark {
+  background-color: transparent !important;
+  border-bottom: 3px solid #C89B7B;
+}
+
+.navbar-brand {
+  font-size: 2.5rem;
+  color: #C89B7B !important;
+}
