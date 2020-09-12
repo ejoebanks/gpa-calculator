@@ -1,0 +1,22 @@
+.cumulative {
+  display: block;
+  text-align: center;
+  width: 500px;
+}
+
+.text-justify{
+  display: block !important;
+}
+
+p {
+  font-size: 20px;
+}
+
+.descript {
+}
+
+.text-box {
+  text-align: center;
+  margin: auto;
+  width: 40vw;
+}
