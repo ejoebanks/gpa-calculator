@@ -30,18 +30,3 @@ export default function TableRow() {
 export function deleteRow() {
 
 }
-
-export function AddRow(event) {
-  let inputgroups = [];
-  let i = document.getElementById('testboxhere').value;
-  inputgroups.push(
-    <tr key={i+1} id={i+1}>
-      <td id={i+1}/>
-      <td><input id={i} name="course" className="form-control" value='' placeholder="Class Name"/></td>
-      <td><input id={i}  name="course" className="form-control" value='' placeholder="Grade" /></td>
-      <td><input id={i}  name="course" className="form-control" value='' placeholder="Credit Hours" /></td>
-      <td><input type="checkbox" className="btn_repeat" id={i} /></td>
-      <td><input id={i}  name="total" className="total form-control" id="total1" /></td>
-    </tr>
-)
-}

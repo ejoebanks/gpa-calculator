@@ -5,7 +5,7 @@ import * as C from '../logic/Calculation.js';
 import Constants from '../Constants/Constants.js';
 import { appendRow, deleteRow } from '../logic/AutomaticFunctions.js';
 import Table from './Table';
-import {AddRow} from './TableRow.js';
+import ButtonGroup from './ButtonGroup'
 
 
 export default function CalculationForm() {
@@ -23,14 +23,7 @@ export default function CalculationForm() {
           <div className="form-group">
           <Cumulative />
           <Table />
-              <div className="d-flex justify-content-center">
-              <div className="btn-group mr-2" role="group" aria-label="Second group">
-              <button type="button" className="btn btn-secondary" onClick={AddRow}>Add Row</button>
-              </div>
-              <div className="btn-group mr-2" role="group" aria-label="Second group">
-                <button type="button" className="btn btn-secondary resetBtn" onClick={freset}>Reset</button>
-              </div>
-              </div>
+          <ButtonGroup />
             <div className="output_container">
               <div className="output_part">
                 <h3>Term GPA</h3>

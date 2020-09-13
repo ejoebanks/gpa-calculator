@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+// Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import CalculationForm from "./components/CalculationForm";
+
+
 ReactDOM.render(
   <React.StrictMode>
-    <CalculationForm />,
-    <App />
+  <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
