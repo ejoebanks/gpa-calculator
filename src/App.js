@@ -1,6 +1,6 @@
 import React from 'react';
 import CalculationForm from "./components/CalculationForm";
-import NavBar from "./components/navbar";
+import NavBar from "./components/Navbar";
 import Table from './components/Table';
 import Cumulative from './components/Cumulative';
 
