@@ -1,11 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TableRow from './TableRow';
 import AddRow from './TableRow.js';
+import ButtonGroup from './ButtonGroup';
+import { row } from './ButtonGroup.js';
 
-function Table() {
-  const [ count, setCount ] = useState(0);
+
+const Table = () => {
+  const [rows, setRows] = useState([])
+
+  const removeData = (id) => {}
+
+  const renderHeader = () => {
+          let headerElement = ['remove', 'course', 'grade', 'credits', 'repeat', 'quality points']
+
+          return headerElement.map((key, index) => {
+              return <th key={index}>{key.charAt(0).toUpperCase() + key.slice(1)}</th>
+          })
+      }
+
+      const renderBody = (props) => {
+        for (let i = 0; i <= props; i++) {
+          rows.push(
+            <>
+              <td id={i}>{i > 0 && <button type="button" name="remove" id="" class="btn_remove btn">X</button>}</td>
+              <td><input name="course" className="form-control" value='' placeholder="Course"/></td>
+              <td><input id={"Grade_" + i + ""}  name="course" className="form-control" value='' placeholder="Grade" /></td>
+              <td><input id={i}  name="course" className="form-control" value='' placeholder="Credit Hours" /></td>
+              <td><input type="checkbox" className="btn_repeat" id={i} /></td>
+              <td><input id={i} name="total" className="total form-control" readOnly id="total1" /></td>
+            </>
+        )
+
+      }
+
+      return rows && rows.map((row, index) => {
+          return (
+            <tr id={index} key={index}>{row}</tr>
+          )
+      })
+  }
+
   let tableRowGroups = [];
-
   for (let i = 0; i < 4; i++) {
     tableRowGroups.push(
       <tr>
@@ -28,22 +63,17 @@ function Table() {
     )
 }
 
-const inputOut = inputgroups.map((row) => <div key={5}>{row}</div>);
 
+const inputOut = inputgroups.map((row) => <div key={5}>{row}</div>);
 
   return (
     <table className="table table-striped table-bordered">
       <thead>
         <tr>
-          <th scope="col">Remove</th>
-          <th scope="col">Course</th>
-          <th scope="col">Grade</th>
-          <th scope="col">Credits</th>
-          <th scope="col">Credits</th>
-          <th scope="col">Quality Points</th>
+        {renderHeader()}
         </tr>
       </thead>
-      <TableRow />
+      {renderBody(3)}
     </table>
   );
 }
