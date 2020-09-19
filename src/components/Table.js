@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import Constants from '../Constants/Constants.js';
 
 const Table = () => {
   const [rows, setRows] = useState([]);
+  const [count, setCount] = useState(0);
   const tableRow = [
     {
-      id: rows.length,
+      id: count,
       course: <input name="course" className="form-control" placeholder="Course"/>,
       grade: <input id={"Grade_"}  name="course" className="form-control" placeholder="Grade" />,
       credithours: <input name="credithours" className="form-control" value=" " placeholder="Credit Hours" />,
@@ -13,9 +15,11 @@ const Table = () => {
     }];
   useEffect(() => {
     getData();
+    //Increment row count so the initial row isn't duplicated
+    setCount(count + 1);
     }, [])
 
-  const getData =  () => {
+  const getData = () => {
     setRows(tableRow);
   }
     const renderHeader = () => {
@@ -32,16 +36,25 @@ const Table = () => {
          setRows(del);
        }
 
-       const addData = (id) => {
+       const addData = () => {
          let add = [];
+         setCount(count + 1);
          if (rows.length < 8) {
            add = rows.concat(tableRow);
            setRows(add);
-           alert(rows.length);
          } else {
            alert ("Course load is limited to 8");
          }
        }
+
+       const appendRows = () => {
+         let add = [];
+         for (let i = 0; i <= 4; i++) {
+           add = rows.concat(tableRow);
+           setRows(add);
+         }
+       }
+
 
        const renderBody = () => {
            return rows && rows.map(({ id, course, repeat, credithours, grade, remove, total }) => {
@@ -56,7 +69,15 @@ const Table = () => {
                    </tr>
                )
            })
+
+
        }
+
+       const freset = () => {
+         console.log(document.getElementById("myform"));
+         document.getElementById("myform").reset();
+       }
+
 
 
   return (
@@ -71,7 +92,12 @@ const Table = () => {
         {renderBody()}
       </tbody>
     </table>
-    <button type="button" name="remove" id=" " onClick={() => addData()}class="btn_remove btn">X</button>
+    <div className="btn-group mr-2" role="group" aria-label="Second group">
+    <button type="button" className="btn btn-secondary" onClick={() => addData()}>Add Row</button>
+    </div>
+    <div className="btn-group mr-2" role="group" aria-label="Second group">
+      <button type="button" className="btn btn-secondary resetBtn" onClick={() => freset()}>Reset</button>
+    </div>
     </>
   );
 }
