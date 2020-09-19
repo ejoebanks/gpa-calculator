@@ -23,7 +23,6 @@ export default function CalculationForm() {
           <div className="form-group">
           <Cumulative />
           <Table />
-          <ButtonGroup />
             <div className="output_container">
               <div className="output_part">
                 <h3>Term GPA</h3>
