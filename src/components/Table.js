@@ -8,8 +8,43 @@ const Table = () => {
     {
       id: count,
       course: <input name="course" className="form-control" placeholder="Course"/>,
-      grade: <input id={"Grade_"}  name="course" className="form-control" placeholder="Grade" />,
-      credithours: <input name="credithours" className="form-control" value=" " placeholder="Credit Hours" />,
+      grade:
+
+      <select id="currentgrade" className="currentgrade amount form-control" >
+        <option id="def1" value="default">Grade</option>
+        <option value="4">A</option>
+        <option value="3">B</option>
+        <option value="2">C</option>
+        <option value="1">D</option>
+        <option value="0">F</option>
+        <option value="0">NCR</option>
+        <option value="100">I</option>
+        <option value="100">W</option>
+        <option value="100">X</option>
+        <option value="100">CR</option>
+      </select>
+      ,
+      credithours:
+
+      <select id="credithours" className="credithours amount form-control" >
+        <option id="def2" value="default" selected>Hours</option>
+        <option value=".5">.5</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+      </select>
+      ,
       repeat: <input type="checkbox" className="btn_repeat" />,
       total: <input name="total" className="total form-control" readOnly id="total1" />
     }];
@@ -60,7 +95,7 @@ const Table = () => {
            return rows && rows.map(({ id, course, repeat, credithours, grade, remove, total }) => {
                return (
                    <tr id={id} key={id}>
-                       <td>{id > 0 ? <button type="button" name="remove" id=" " onClick={() => removeData(id)}class="btn_remove btn">X</button> : " "}</td>
+                       <td>{id > 0 ? <button type="button" name="remove" id=" " onClick={() => removeData(id)}className="btn_remove btn">X</button> : " "}</td>
                        <td>{course}</td>
                        <td>{grade}</td>
                        <td>{credithours}</td>
