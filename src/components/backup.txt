@@ -1,0 +1,92 @@
+import React from "react";
+
+
+export default function TableRow() {
+    let tableRowGroups = [];
+
+
+    for (let i = 0; i < 4; i++) {
+      tableRowGroups.push(
+        <>
+          <td id={i}>{i > 0 && <button type="button" name="remove" id="" class="btn_remove btn">X</button>}</td>
+          <td><input name="course" className="form-control" value='' placeholder="Course"/></td>
+          <td><input id={"Grade_" + i + ""}  name="course" className="form-control" value='' placeholder="Grade" /></td>
+          <td><input id={i}  name="course" className="form-control" value='' placeholder="Credit Hours" /></td>
+          <td><input type="checkbox" className="btn_repeat" id={i} /></td>
+          <td><input id={i} name="total" className="total form-control" id="total1" /></td>
+        </>
+    )
+  }
+
+
+  return (
+        <tbody>
+          {tableRowGroups.map((row, index) => {
+            return <tr id={index} key={index}>{row}</tr>
+          })}
+        </tbody>
+  );
+}
+
+----------------------------------------------------------------------------------Table.js
+import React, { useState, useEffect } from "react";
+import TableRow from './TableRow';
+import AddRow from './TableRow.js';
+import ButtonGroup from './ButtonGroup';
+
+
+const Table = () => {
+  const [rows, setRows] = useState([]);
+  const [count, setCount] = useState(4);
+  const row = [];
+  const appendedRows = [];
+  const removeData = (id) => {}
+  var tableRow = [
+    {course: <input name="course" className="form-control" placeholder="Course"/>},
+    {grade: <input id={"Grade_"}  name="course" className="form-control" value=" " placeholder="Grade" />},
+    {credithours: <input id={1}  name="credithours" className="form-control" value=" " placeholder="Credit Hours" />},
+    {repeat: <input type="checkbox" className="btn_repeat" id={1} />},
+    {total: <input id={1} name="total" className="total form-control" readOnly id="total1" />}
+  ];
+
+      const renderHeader = () => {
+      let headerElement = ['remove', 'course', 'grade', 'credits',
+      'repeat', 'quality points']
+
+      return headerElement.map((key, index) => {
+        return <th key={index}>{key.charAt(0).toUpperCase() + key.slice(1)}</th>
+        })
+       }
+
+
+      const renderBody = (props) => {
+
+      return tableRow && tableRow.map(row => {
+          return (
+            <tr>
+              <td></td>
+              <td>{row.course}</td>
+              <td>{row.grade}</td>
+              <td>{row.credithours}</td>
+              <td>{row.repeat}</td>
+              <td>{row.total}</td>
+            </tr>
+          )
+      })
+  }
+
+  return (
+    <div>
+    <table className="table table-striped table-bordered">
+      <thead>
+        <tr>
+        {renderHeader()}
+        </tr>
+      </thead>
+      {renderBody(3)}
+    </table>
+    </div>
+  );
+}
+
+export default Table;
